@@ -35,11 +35,5 @@ class Order:
     def price(self):
         return self._price
     
-    @price.setter
-    def price(self, value):
-        if not isinstance(value, float) or not (1.0 <= value <= 10.0):
-            raise ValueError("Price must be 1.0-10.0 float")
-        if hasattr(self, '_price'):
-            raise AttributeError("Price is immutable")
-        self._price = value
-
+    
+    
