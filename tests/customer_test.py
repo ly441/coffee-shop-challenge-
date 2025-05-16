@@ -1,7 +1,7 @@
 
 
-from customer import Customer
-from coffee import Coffee
+from coffee_shop.customer import Customer
+from coffee_shop.coffee import Coffee
 
 def test_create_order():
     lynn = Customer("Lynn")
@@ -27,6 +27,17 @@ def test_most_aficionado():
     # Annah orders once
     annah.create_order(espresso, 4.0)
     
-    # Test
+
     top_customer = Customer.most_aficionado(espresso)
     assert top_customer == lynn
+
+
+
+
+if __name__ == "__main__":
+    lynn = Customer("Lynn")
+    espresso = Coffee("Espresso")
+    
+    
+    order = lynn.create_order(espresso, 4.5)
+    print(f"Order price: {order.price}")    

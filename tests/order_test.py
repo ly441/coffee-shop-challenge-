@@ -1,7 +1,7 @@
-import pytest
-from customer import Customer  
-from coffee import Coffee      
-from order import Order
+
+from coffee_shop.customer import Customer  
+from coffee_shop.coffee import Coffee      
+from coffee_shop.order import Order
 
 @pytest.fixture
 def sample_customer():
@@ -57,3 +57,6 @@ class TestOrder:
         # Check coffee relationships
         assert order in sample_coffee.orders()
         assert sample_customer in sample_coffee.customers()
+        
+        
+        

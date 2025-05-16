@@ -1,6 +1,6 @@
 
-from customer import Customer
-from coffee import Coffee
+from coffee_shop.customer import Customer
+from coffee_shop.coffee import Coffee
 class Order:
     def __init__(self, customer, coffee, price):
         self.customer = customer
@@ -47,5 +47,7 @@ class Order:
         self._price = value
 
 order = Order(Customer("Lynn"), Coffee("Espresso"), 4.5)
-print(order.customer.name)          
+print(order.customer.name)  
+
+
     

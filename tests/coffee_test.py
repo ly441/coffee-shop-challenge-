@@ -1,7 +1,7 @@
 
 
-from customer import Customer
-from coffee import Coffee
+from coffee_shop.customer import Customer
+from coffee_shop.coffee import Coffee
 
 def test_num_orders_and_average_price():
     
