@@ -11,12 +11,14 @@ class Coffee:
         
     @property
     def name(self):
-        """Getter returns the coffee's name"""
+       
+       
         return self._name
     
     @name.setter
     def name(self, value):
-        """Setter enforces name validation rules"""
+       
+       
         if self._name is not None:
             raise AttributeError("Coffee name cannot be changed after initialization")
         
