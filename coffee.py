@@ -1,3 +1,6 @@
+from customer import Customer
+
+
 class Coffee:
     def __init__(self, name):
         self._name = None  # Initialize private attribute
@@ -27,3 +30,7 @@ class Coffee:
         return self._orders
     def customers(self):
         return list({order.customer for order in self._orders})    
+coffee1 = Coffee("Espresso")
+coffee2 = Coffee("Latte")
+print(coffee1.name)
+print(coffee2.name)    
