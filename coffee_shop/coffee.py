@@ -39,7 +39,8 @@ class Coffee:
     def avaerage_price(self):
         if not self._orders:
             return 0.0
-        return sum(order.price for order in self._orders) / len(self._orders)
+        total = sum(order.price for order in self._orders)
+        return round(total/ len(self._orders), 2)
     
 coffee = Coffee("Espresso")
 print(coffee.name)    

@@ -4,9 +4,9 @@ class Customer:
     def __init__(self, name):
         self.name = name
         self._orders = [] 
-         # Stores Order instances for this customer
+
     def create_order(self, coffee, price):
-        # Move the import HERE instead of at the top
+
         from coffee_shop.order import Order
         new_order = Order(self, coffee, price)
         self._orders.append(new_order)
@@ -31,24 +31,15 @@ class Customer:
         """Return unique list of coffees ordered"""
         return list({order.coffee for order in self._orders})
 
+    
     def create_order(self, coffee, price):
-        """Create and return a new Order linked to this customer"""
-        new_order = Order(self, coffee, price)
-        self._orders.append(new_order)
-        return new_order
-
+        from coffee_shop.order import Order
+        return Order(self, coffee, price)
+    
     @classmethod
     def most_aficionado(cls, coffee):
-        """Return customer who spent most on given coffee"""
-        if not coffee.orders():
-            return None
-            
-        customers_spending = {}
+        customers = {}
         for order in coffee.orders():
-            if order.customer not in customers_spending:
-                customers_spending[order.customer] = 0
-            customers_spending[order.customer] += order.price
-            
-        return max(customers_spending, key=lambda k: customers_spending[k])
-
+            customers[order.customer] = customers.get(order.customer, 0) + order.price
+        return max(customers, key=customers.get) if customers else None
 

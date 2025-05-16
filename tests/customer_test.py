@@ -7,7 +7,7 @@ def test_create_order():
     lynn = Customer("Lynn")
     espresso = Coffee("Espresso")
     
-    # Test order creation
+    
     order1 = lynn.create_order(espresso, 4.5)
     order2 = lynn.create_order(espresso, 5.0)
     
