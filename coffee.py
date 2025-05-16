@@ -1,4 +1,4 @@
-from customer import Customer
+
 
 
 class Coffee:
@@ -32,5 +32,3 @@ class Coffee:
         return list({order.customer for order in self._orders})    
 coffee1 = Coffee("Espresso")
 coffee2 = Coffee("Latte")
-print(coffee1.name)
-print(coffee2.name)    

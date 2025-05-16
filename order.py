@@ -1,17 +1,15 @@
-
-from customer import Customer  # Make sure to import Customer
-from coffee import Coffee      # Make sure to import Coffee
-
+# In order.py
+from customer import Customer
+from coffee import Coffee
 class Order:
     def __init__(self, customer, coffee, price):
-        # Use property setters for validation
         self.customer = customer
         self.coffee = coffee
         self.price = price
         
-        # Add to customer's and coffee's order lists
-        customer.orders().append(self)
-        coffee.orders().append(self)
+        # Add this order to customer and coffee
+        customer._orders.append(self)
+        coffee._orders.append(self)
 
     @property
     def customer(self):
@@ -19,8 +17,8 @@ class Order:
     
     @customer.setter
     def customer(self, value):
-        if not isinstance(value, Customer):  # Fixed syntax
-            raise TypeError("Must be a Customer instance")
+        if not isinstance(value, Customer):
+            raise TypeError("Must be Customer instance")
         self._customer = value
 
     @property
@@ -29,8 +27,19 @@ class Order:
     
     @coffee.setter
     def coffee(self, value):
-        if not isinstance(value, Coffee):  # Fixed syntax
-            raise TypeError("Must be a Coffee instance")
+        if not isinstance(value, Coffee):
+            raise TypeError("Must be Coffee instance")
         self._coffee = value
 
-order1 = Order(customer1, coffee1, 5.00)
+    @property
+    def price(self):
+        return self._price
+    
+    @price.setter
+    def price(self, value):
+        if not isinstance(value, float) or not (1.0 <= value <= 10.0):
+            raise ValueError("Price must be 1.0-10.0 float")
+        if hasattr(self, '_price'):
+            raise AttributeError("Price is immutable")
+        self._price = value
+
