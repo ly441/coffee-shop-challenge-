@@ -7,8 +7,6 @@ class Coffee:
         self.name = name
         self._orders = []
         
-           # Use property setter for validation
-        
     @property
     def name(self):
        
@@ -38,9 +36,11 @@ class Coffee:
         return len(self._orders)
     def avaerage_price(self):
         if not self._orders:
-            return 0.0
+            return 0
         total = sum(order.price for order in self._orders)
-        return round(total/ len(self._orders), 2)
+        return total / len(self._orders)
+    def average_price(self):
+        print("Average price method called")
     
 coffee = Coffee("Espresso")
 print(coffee.name)    
