@@ -1,7 +1,10 @@
 class Coffee:
     def __init__(self, name):
         self._name = None  # Initialize private attribute
-        self.name = name   # Use property setter for validation
+        self.name = name
+        self._orders = []
+        
+           # Use property setter for validation
         
     @property
     def name(self):
@@ -20,3 +23,7 @@ class Coffee:
             raise ValueError("Name must be at least 3 characters long")
         
         self._name = value
+    def orders(self):
+        return self._orders
+    def customers(self):
+        return list({order.customer for order in self._orders})    
