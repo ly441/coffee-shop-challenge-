@@ -1,0 +1,22 @@
+class Coffee:
+    def __init__(self, name):
+        self._name = None  # Initialize private attribute
+        self.name = name   # Use property setter for validation
+        
+    @property
+    def name(self):
+        """Getter returns the coffee's name"""
+        return self._name
+    
+    @name.setter
+    def name(self, value):
+        """Setter enforces name validation rules"""
+        if self._name is not None:
+            raise AttributeError("Coffee name cannot be changed after initialization")
+        
+        if not isinstance(value, str):
+            raise TypeError("Name must be a string")
+        if len(value) < 3:
+            raise ValueError("Name must be at least 3 characters long")
+        
+        self._name = value
