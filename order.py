@@ -1,4 +1,4 @@
-# In order.py
+
 from customer import Customer
 from coffee import Coffee
 class Order:
@@ -45,4 +45,7 @@ class Order:
         if hasattr(self, '_price'):
             raise AttributeError("Price is immutable")
         self._price = value
+
+order = Order(Customer("Lynn"), Coffee("Espresso"), 4.5)
+print(order.customer.name)          
     

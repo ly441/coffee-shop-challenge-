@@ -1,5 +1,5 @@
 
-
+from customer import Customer
 
 class Coffee:
     def __init__(self, name):
@@ -40,4 +40,7 @@ class Coffee:
         if not self._orders:
             return 0.0
         return sum(order.price for order in self._orders) / len(self._orders)
+    
+coffee = Coffee("Espresso")
+print(coffee.name)    
         

@@ -35,3 +35,6 @@ class Customer:
             customers.setdefault(order.customer, 0)
             customers[order.customer] += order.price
         return max(customers, key=customers.get) if customers else None
+    
+customer = Customer("Lynn")
+print(customer.name)    
