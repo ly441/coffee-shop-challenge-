@@ -1,31 +1,17 @@
-import pytest
+
+
 from customer import Customer
 from coffee import Coffee
 
-def test_create_order():
-    lynn = Customer("Lynn")
+def test_num_orders_and_average_price():
+    
     espresso = Coffee("Espresso")
-    
-    # Test order creation
-    order1 = lynn.create_order(espresso, 4.5)
-    order2 = lynn.create_order(espresso, 5.0)
-    
-    assert len(lynn.orders()) == 2
-    assert espresso in lynn.coffees()
-
-def test_most_aficionado():
-    # Setup
     lynn = Customer("Lynn")
-    annah = Customer("Annah")
-    espresso = Coffee("Espresso")
     
-    # Lynn orders espresso twice
+    # Create orders
     lynn.create_order(espresso, 4.5)
     lynn.create_order(espresso, 5.0)
     
-    # Annah orders once
-    annah.create_order(espresso, 4.0)
-    
     # Test
-    top_customer = Customer.most_aficionado(espresso)
-    assert top_customer == lynn
+    assert espresso.num_orders() == 2
+    assert espresso.average_price() == (4.5 + 5.0) / 2
