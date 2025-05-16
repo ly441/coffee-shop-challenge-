@@ -1,5 +1,5 @@
 
-from coffee import Coffee
+
 from order import Order
 
 
@@ -24,6 +24,14 @@ class Customer:
         return self._orders
     def coffees(self):
         return list({order.coffee for order in self._orders})   
-
-
-customer = Customer("John Doe")
+    def create_order(self,coffee,price):
+        return Order(self,coffee,price)
+    
+   
+    @classmethod
+    def most_aficionado(cls, coffee):
+        customers = {}
+        for order in coffee.orders():
+            customers.setdefault(order.customer, 0)
+            customers[order.customer] += order.price
+        return max(customers, key=customers.get) if customers else None
