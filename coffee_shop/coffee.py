@@ -22,7 +22,7 @@ class Coffee:
         
         if not isinstance(value, str):
             raise TypeError("Name must be a string")
-        if len(value) < 3:
+        if len(value) < 3.0:
             raise ValueError("Name must be at least 3 characters long")
         
         self._name = value
@@ -34,13 +34,8 @@ class Coffee:
         return list({order.customer for order in self._orders})
     def num_orders(self):
         return len(self._orders)
-    def avaerage_price(self):
-        if not self._orders:
-            return 0
-        total = sum(order.price for order in self._orders)
-        return total / len(self._orders)
-    def average_price(self):
-        print("Average price method called")
+    
+    
     
 coffee = Coffee("Espresso")
 print(coffee.name)    
